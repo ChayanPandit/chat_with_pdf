@@ -8,8 +8,7 @@ The backend consists of FastAPI server, which processes and stores the pdfs uplo
 
 * Supports multiple pdf uploads.
 * Follow up questions are easily answered.
-
-This section can include details about functionalities, supported data models, or unique aspects of the app.
+  
 
 ### Installation
 
@@ -17,52 +16,58 @@ Here's how to install the required dependencies and run the application:
 
 1. **Prerequisites:**
     * Python 3.6+
+    * fastapi
+    * uvicorn
+    * pydantic
+    * google-generativeai
+    * langchain
+    * faiss-cpu
+
 2. **Dependencies:**
-    * Install dependencies using a package manager like `poetry`:
-        ```bash
-        poetry install
+    * Install dependencies using a package manager like `pip`:
+      ```bash
+        pip install -r requirements.txt
         ```
 3. **Running the application:**
     * Start the development server:
         ```bash
-        poetry run uvicorn main:app --reload
+        cd fastapi
+        uvicorn main:app --reload
         ```
     * Access the application in your browser at http://127.0.0.1:8000/
 
-**Note:** These are general instructions. You might need to modify them based on your specific project setup.
 
 ### Usage
 
-This section details how to interact with the application's API. It can include:
+Two endpoints used are:
 
-* Instructions on using the API endpoints. 
-* Examples of API requests with expected responses.
-* Links to any generated API documentation (Swagger UI, ReDoc).
+* /uploadfile/ 
+* /question/
 
-**Example:**
+**Upload pdf:**
 
-The application provides an endpoint to retrieve a list of items:
+The application provides an endpoint to upload multiple pdfs:
 
 ```
-GET /items/
+POST /uploadfile/
 ```
 
-This returns a JSON response with a list of items.
+The uploaded pdfs undergo preprocessing and stored in vector spaces for easy retrieval dring query asking.
+This returns a JSON response with a list of filenames corrsponding to the ones uploaded.
 
-**Additional Documentation:**
+**Ask query:**
 
-* Consider including links to any additional documentation you might have, like code explanations or deployment instructions.
+The application provides an endpoint to ask query related to the documents:
 
-### Contributing
+```
+POST /question/
+```
 
-* If you'd like people to contribute to your project, outline your contribution guidelines here.
+The question is passed to the llm, along with chat history and a prompt. The llm returns the answer to the query, which is then added to chat history.
+This returns a JSON response corrsponding to the updated chat history.
 
-This section can specify preferred ways for users to submit bug reports, feature requests, or code contributions.
+**Deployed at:**
 
-### License
+* https://chat-with-pdf-frontend-03q0.onrender.com
 
-* Specify the license under which your code is distributed.
 
-You can mention the license name and provide a link to the license text file.
-
-**Please note:** This is a template. You should customize it to fit your specific FastAPI application.
