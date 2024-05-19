@@ -8,6 +8,9 @@ import glob
 from chat import get_pdf_text, get_text_chunks, get_vector_store, get_conversation_chain_gemini, handle_user_input
 
 
+
+app = FastAPI()
+
 class Chat(BaseModel):
     question: str
     answer: str
@@ -19,7 +22,6 @@ class Item(BaseModel):
 
 UPLOAD_DIR = Path() / 'uploads'
 
-app = FastAPI()
 
 origins = ['*']
 

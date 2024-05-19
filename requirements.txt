@@ -2,7 +2,6 @@ fastapi
 uvicorn
 pydantic
 pathlib
-streamlit
 google-generativeai
 python-dotenv
 langchain
@@ -10,7 +9,6 @@ PyPDF2
 chromadb
 faiss-cpu
 langchain_google_genai
-streamlit_chat
 sentence_transformers
 langchain-community 
 langchain-core
