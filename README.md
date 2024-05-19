@@ -28,46 +28,51 @@ Here's how to install the required dependencies and run the application:
       ```bash
         pip install -r requirements.txt
         ```
-3. **Running the application:**
+3. **Running the server:**
     * Start the development server:
         ```bash
         cd fastapi
         uvicorn main:app --reload
         ```
     * Access the application in your browser at http://127.0.0.1:8000/
+      
+3. **Start the frontend:**
+    * Run react app:
+        ```bash
+        cd react/pdf-qa
+        npm install
+        npm run build 
+        ```
+    * Access the application in your browser at http://127.0.0.1:3000/
 
 
-### Usage
+### Endpoints
 
 Two endpoints used are:
-
 * /uploadfile/ 
 * /question/
 
 **Upload pdf:**
 
 The application provides an endpoint to upload multiple pdfs:
-
 ```
 POST /uploadfile/
 ```
-
 The uploaded pdfs undergo preprocessing and stored in vector spaces for easy retrieval dring query asking.
 This returns a JSON response with a list of filenames corrsponding to the ones uploaded.
 
 **Ask query:**
 
 The application provides an endpoint to ask query related to the documents:
-
 ```
 POST /question/
 ```
-
 The question is passed to the llm, along with chat history and a prompt. The llm returns the answer to the query, which is then added to chat history.
 This returns a JSON response corrsponding to the updated chat history.
 
 **Deployed at:**
 
-* https://chat-with-pdf-frontend-03q0.onrender.com
+* Frontend: https://chat-with-pdf-frontend-03q0.onrender.com
+* Backend:  https://chat-with-pdf-backend-yzcq.onrender.com
 
 
