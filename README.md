@@ -1,12 +1,13 @@
 ### Project Description
 
-*A brief description of your FastAPI application.*
+*A web app to upload multiple pdfs and ask questions about them to llms (Gemini).*
 
-This section should provide a high-level overview of what the application does and its functionalities. 
+The backend consists of FastAPI server, which processes and stores the pdfs uploaded in vectore stores. When user asks a doubt, the relevant documents and the entire chat history is provided along with a prompt and the llm responds with relevant output.
 
 ### Features
 
-* List the key features of your application.
+* Supports multiple pdf uploads.
+* Follow up questions are easily answered.
 
 This section can include details about functionalities, supported data models, or unique aspects of the app.
 
